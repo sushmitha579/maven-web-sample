@@ -7,15 +7,17 @@
 
     <groupId>com.example</groupId>
     <artifactId>maven-web-sample</artifactId>
-    <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
+        <!-- Jakarta Servlet API for Tomcat 10+ -->
         <dependency>
             <groupId>jakarta.servlet</groupId>
             <artifactId>jakarta.servlet-api</artifactId>
@@ -26,16 +28,17 @@
 
     <build>
         <finalName>maven-web-sample</finalName>
+
         <plugins>
 
-            <!-- Latest WAR plugin (fixes your error) -->
+            <!-- NEW WAR plugin (old 2.2 causes your error) -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.4.0</version>
             </plugin>
 
-            <!-- Java 17 compiler plugin -->
+            <!-- Compiler plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -50,4 +53,5 @@
     </build>
 
 </project>
+
 
